@@ -1,0 +1,414 @@
+:root {
+    --fondo: indigo;
+    --fondo2: mediumpurple;
+    --color-claro: aliceblue;
+    --color-O: DeepPink;
+    --color-X: DeepSkyBlue;
+    --anchoFull: 25%;
+    --anchoMedm: 35%;
+    --anchoSmall: 45%;
+    --anchoSmallX: 55%;
+    --anchoSmallXX: 65%;
+    --grid-lines-color: var(--fondo2);
+    --grid-lines-width: 1px;
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#inicio,
+.marcas>label,
+button {
+    cursor: pointer;
+    border: none;
+}
+
+body {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--fondo);
+}
+
+.menu-inicio {
+    position: relative;
+    display: block;
+    width: var(--anchoFull);
+    height: auto;
+}
+
+.selecionar-marca {
+    position: inherit;
+    display: block;
+    background-color: var(--fondo2);
+    padding: 10pt;
+    border-radius: 4pt;
+}
+
+.marcas {
+    position: inherit;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin: 8pt 0;
+    overflow: hidden;
+    border-radius: 10pt;
+}
+
+.selecionar-marca {
+    color: var(--color-claro);
+}
+
+.selecionar-marca>p {
+    font-size: 7pt;
+    text-align: center;
+}
+
+.tipo-juego {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    margin-top: 24pt;
+}
+
+.tipo-juego>button {
+    position: relative;
+    width: fit-content;
+    font-size: 8pt;
+    padding: 6pt 12pt;
+    border-radius: 12pt;
+}
+
+.tipo-juego>button:is(:active :focus) {
+    background-color: var(--fondo);
+}
+
+.tipo-juego>button:first-child {
+    color: var(--color-claro);
+    background-color: var(--fondo2);
+    box-shadow: 0 6pt 18pt 0 var(--fondo2);
+}
+
+.tipo-juego>button:last-child {
+    color: var(--fondo2);
+    background-color: var(--color-claro);
+    box-shadow: 0 6pt 18pt 0 rgba(0, 0, 0, 0.4);
+    margin-top: 24pt;
+}
+
+.marcas>input {
+    display: none;
+}
+
+.marcas>label {
+    font-weight: bold;
+    width: 50%;
+    padding: 4pt;
+    text-align: center;
+    border-radius: 10pt;
+}
+
+#marcaX:checked:checked~.lb-x,
+#marcaO:checked:checked~.lb-o {
+    background-color: var(--color-claro);
+    color: var(--fondo);
+}
+
+.interfaz-juego {
+    position: relative;
+    display: none;
+    width: var(--anchoFull);
+}
+
+.interfaz-juego>header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 20pt;
+}
+
+.interfaz-juego header>div {
+    position: absolute;
+    left: 0pt;
+}
+
+.interfaz-juego header div>span {
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+.interfaz-juego header div>span:first-child {
+    color: var(--color-X);
+}
+
+.interfaz-juego header div>span:last-child {
+    color: var(--color-O);
+}
+
+.interfaz-juego header>p {
+    font-size: 8pt;
+    padding: 2pt 4pt;
+    border-radius: 2pt;
+    background-color: var(--fondo2);
+    color: var(--color-claro);
+    box-shadow: 0 2pt 0 0 rgba(0, 0, 0, 0.2);
+    font-weight: bolder;
+
+}
+
+.interfaz-juego header>button {
+    position: absolute;
+    width: 14pt;
+    height: 14pt;
+    border-radius: 2pt;
+    right: 0pt;
+    color: var(--color-O);
+    background-color: transparent;
+}
+
+.interfaz-juego header>button:active {
+    box-shadow: inset 0 0 rgba(0, 0, 0, 0.4);
+}
+
+.interfaz-juego header button>i {
+    font-size: 12px;
+}
+
+.interfaz-juego section {
+    --w: calc(100% / 3);
+    position: relative;
+    display: grid;
+    margin: 6pt 0;
+    grid-template-columns: var(--w) var(--w) var(--w);
+    overflow: hidden;
+    border-radius: 8pt;
+}
+
+.interfaz-juego section>button {
+    position: relative;
+    height: 48pt;
+    font-size: 32pt;
+    background-color: var(--color-claro);
+}
+
+#campo0,
+#campo6 {
+    box-shadow: inset calc(-1 * var(--grid-lines-width)) 0 0 0 var(--grid-lines-color);
+}
+
+#campo2,
+#campo8 {
+    box-shadow: inset var(--grid-lines-width) 0 0 0 var(--grid-lines-color);
+}
+
+#campo3 {
+    box-shadow: inset 0 var(--grid-lines-width) 0 0 var(--grid-lines-color),
+        inset 0 calc(-1 * var(--grid-lines-width)) 0 0 var(--grid-lines-color),
+        inset calc(-1 * var(--grid-lines-width)) 0 0 0 var(--grid-lines-color);
+}
+
+#campo5 {
+    box-shadow: inset 0 var(--grid-lines-width) 0 0 var(--grid-lines-color),
+        inset 0 calc(-1 * var(--grid-lines-width)) 0 0 var(--grid-lines-color),
+        inset var(--grid-lines-width) 0 0 0 var(--grid-lines-color);
+}
+
+#campo4 {
+    box-shadow: inset 0 var(--grid-lines-width) 0 0 var(--grid-lines-color),
+        inset 0 calc(-1 * var(--grid-lines-width)) 0 0 var(--grid-lines-color);
+}
+
+.x {
+    color: var(--color-X);
+}
+
+.o {
+    color: var(--color-O);
+}
+
+.ganaX {
+    background-color: var(--color-X) !important;
+    color: var(--fondo) !important;
+}
+
+.ganaO {
+    background-color: var(--color-O) !important;
+    color: var(--fondo) !important;
+}
+
+.interfaz-juego footer {
+    --w: calc((100% - 10pt) / 3);
+    position: relative;
+    display: grid;
+    grid-template-columns: var(--w) var(--w) var(--w);
+    column-gap: 5pt;
+    margin-top: 12pt;
+}
+
+.interfaz-juego footer>div {
+    padding: 2pt;
+    border-radius: 4pt;
+}
+
+.interfaz-juego footer div>span {
+    position: relative;
+    display: block;
+    text-align: center;
+}
+
+.interfaz-juego footer div>span:first-child {
+    font-size: 5pt;
+    font-weight: bold;
+    margin-bottom: 2pt;
+}
+
+.interfaz-juego footer div>span:last-child {
+    font-size: 8pt;
+    font-weight: bold;
+}
+
+.x-contador {
+    background-color: var(--color-X);
+}
+
+.o-contador {
+    background-color: var(--color-O);
+}
+
+.i-contador {
+    background-color: var(--color-claro);
+}
+
+#mensaje-contenedor {
+    position: fixed;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    z-index: 10;
+}
+
+.mensaje {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100pt;
+    background-color: var(--fondo);
+}
+
+.cuerpo-mensaje {
+    padding: 10pt 0;
+    width: auto;
+}
+
+.cuerpo-mensaje>span {
+    position: relative;
+    display: block;
+    font-size: 8pt;
+    font-weight: bold;
+    text-align: center;
+    color: var(--color-claro);
+}
+
+.cuerpo-mensaje>h1 {
+    position: relative;
+    text-align: center;
+    margin: 14pt 0;
+}
+
+.cuerpo-mensaje>h1,
+.cuerpo-mensaje>span {
+    text-transform: uppercase;
+}
+
+.x {
+    color: var(--color-X);
+}
+
+.o {
+    color: var(--color-O);
+}
+
+.e {
+    color: var(--color-claro);
+}
+
+.cuerpo-mensaje>div {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.cuerpo-mensaje div>button {
+    font-size: 8pt;
+    margin: 0 4pt;
+    padding: 2pt 6pt;
+    border-radius: 2pt;
+}
+
+.cuerpo-mensaje div>button:first-child {
+    background-color: var(--color-claro);
+}
+
+.cuerpo-mensaje div>button:last-child {
+    background-color: var(--color-O);
+    color: var(--color-claro);
+}
+
+.menu-inicio,
+.interfaz-juego,
+.mensaje {
+    transform: scale(1.4);
+}
+
+@media only screen and (max-width: 800px) {
+    .interfaz-juego {
+        width: var(--anchoMedm);
+    }
+
+    .menu-inicio {
+        width: var(--anchoMedm);
+    }
+}
+
+@media only screen and (max-width: 580px) {
+    .interfaz-juego {
+        width: var(--anchoSmall);
+    }
+
+    .menu-inicio {
+        width: var(--anchoSmall);
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .interfaz-juego {
+        width: var(--anchoSmallX);
+    }
+
+    .menu-inicio {
+        width: var(--anchoSmallX);
+    }
+}
+
+@media only screen and (max-width: 260px) {
+    .interfaz-juego {
+        width: var(--anchoSmallXX);
+    }
+
+    .menu-inicio {
+        width: var(--anchoSmallXX);
+    }
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/estilo.css" rel="stylesheet">
+    <title>GATO</title>
+</head>
+<body>
+    <div class="menu-inicio">
+        <div class="selecionar-marca">
+            <h4>Selecciona una marca</h4>
+            <div class="marcas">
+                <input type="radio" name="marca" value="x" id="marcaX" checked>
+                <label for="marcaX" class="lb-x">x</label>
+                <input type="radio" name="marca" value="o" id="marcaO">
+                <label for="marcaO" class="lb-o">o</label>
+            </div>
+            <p>x tira primero</p>
+        </div>
+        <div class="tipo-juego">
+            <button onclick="establecer(1)">JUGADOR VS IA</button>
+            <button onclick="establecer(2)">JUGADOR VS JUGADOR</button>
+        </div>
+    </div>
+    <div class="interfaz-juego">
+        <header>
+            <div id="inicio" title="volver al menú">
+                <span>x</span><span>o</span>
+            </div>
+            <p class="turno">x turno</p>
+            <button id="nuevaRonda" title="reiniciar">
+                <span>&#8634;</span>
+            </button>
+        </header>
+        <section id="GatoContenedor">
+        </section>
+        <footer>
+            <div class="x-contador">
+                <span class="ttl-contador-x">X</span>
+                <span class="pts-x">0</span>
+            </div>
+            <div class="i-contador">
+                <span>EMPATES</span>
+                <span class="pts-e">0</span>
+            </div>
+            <div class="o-contador">
+                <span class="ttl-contador-o">O</span>
+                <span class="pts-o">0</span>
+            </div>
+        </footer>
+    </div>
+    <div id="mensaje-contenedor">
+        <div class="mensaje">
+            <div class="cuerpo-mensaje">
+                <span class="ganador"></span>
+                <h1 id="ttl"></h1>
+                <div>
+                    <button id="salir">SALIR</button>
+                    <button id="continuar">SIGUIENTE RONDA</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/index.js"></script>
+</body>
+</html>
